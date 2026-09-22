@@ -43,7 +43,7 @@ export default function TokenBalance() {
       <p className="text-2xl font-bold">
         {isLoading
           ? "Chargement..."
-          : `${formatUnits(balance ?? 0n, 6)} USDT`}
+          : `${formatUnits(balance ?? BigInt(0), 6)} USDT`}
       </p>
     </div>
   );
