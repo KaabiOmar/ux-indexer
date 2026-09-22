@@ -1,0 +1,25 @@
+manifest_version: subsquid.io/v0.1
+name: omar-usdt-indexer
+description: Indexeur des transferts USDT
+
+build:
+  node_version: "20"
+  package_manager: npm
+  cmd: ["npx", "tsc"]
+
+deploy:
+  addons:
+    postgres:
+      version: "15"
+
+  init:
+    cmd: ["sqd", "migration:apply"]
+
+  processor:
+    cmd: ["sqd", "process:prod"]
+
+  api:
+    cmd: ["sqd", "serve:prod"]
+
+scale:
+  dedicated: false

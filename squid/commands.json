@@ -1,0 +1,21 @@
+{
+  "$schema": "https://subsquid.io/schemas/commands.json",
+  "commands": {
+    "build": {
+      "description": "Compile le projet TypeScript",
+      "cmd": ["tsc"]
+    },
+    "migration:apply": {
+      "description": "Crée les tables PostgreSQL",
+      "cmd": ["squid-typeorm-migration", "apply"]
+    },
+    "process:prod": {
+      "description": "Lance l'indexeur",
+      "cmd": ["node", "lib/main.js"]
+    },
+    "serve:prod": {
+      "description": "Lance le serveur GraphQL",
+      "cmd": ["squid-graphql-server"]
+    }
+  }
+}
